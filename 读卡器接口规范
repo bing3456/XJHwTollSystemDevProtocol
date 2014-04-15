@@ -1,6 +1,13 @@
-读卡器接口规范
-一、	此规范适用于新疆通行卡和工号卡、月票卡、优惠卡等实用M1卡作为介质的卡片。智能卡暂时不在范围之内！
-二、	命名规范
+
+# 读卡器接口规范
+
+
+1.  此规范适用于新疆通行卡和工号卡、月票卡、优惠卡等实用M1卡作为介质的卡片。智能卡暂时不在范围之内！
+
+
+
+1. 2. 	命名规范
+> 
 a)	文件命名规范 lib<公司名称缩写>IccReader.so   例如， libjyIccReader.so  libHTJKIccReader.so libRHYIccReader.so 
 b)	方法名称命名规范  ICR_<厂家名称缩写>_方法名称  例如 ICR_RHY_Request
 三、	接口方法说明
@@ -9,9 +16,10 @@ a)	初始化读卡器
 参数：ProtNumber   字符串类型，例如:  /dev/COM1  /dev/ttyS0 等
 参数：Bdps 波特率 B9600  等，定义参见Linux的  termios.h 
 b)	寻卡
-定义 int ICR_JKM_MIFRequest(DWORD *dwcardno); 
+定义 `int ICR_JKM_MIFRequest(DWORD *dwcardno);`
+ 
 返回 0 有卡无错误  -1 无卡  
-参数：dwcardno 卡号 类型 typedef unsigned long
+参数：`dwcardno` 卡号 类型 typedef unsigned long
 c)	读写扇区验证
 定义: int ICR_JKM _AuthenticateWithKey(int keytype,int sector,char *key);
 返回：0 成功验证允许进行读写  -1 不成功  
